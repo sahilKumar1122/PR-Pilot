@@ -1,0 +1,32 @@
+# Backend Dependencies - FastAPI Web Server
+# Learn what each does as we use them!
+
+# Web Framework
+fastapi==0.104.1          # Modern, fast web framework
+uvicorn[standard]==0.24.0 # ASGI server to run FastAPI
+python-multipart==0.0.6   # For form data parsing
+
+# GitHub Integration
+PyGithub==2.1.1           # GitHub API client
+cryptography==41.0.7      # For webhook signature verification
+
+# Task Queue
+celery==5.3.4             # For enqueuing background jobs
+redis==5.0.1              # Redis client for Celery broker
+
+# Database
+psycopg[binary]>=3.2.0    # PostgreSQL adapter (Python 3.13 compatible!)
+sqlalchemy==2.0.23        # ORM for database
+alembic==1.12.1           # Database migrations
+
+# Configuration
+python-dotenv==1.0.0      # Load .env files
+pydantic-settings==2.1.0  # Settings management
+
+# Observability
+sentry-sdk[fastapi]==1.38.0  # Error tracking (optional)
+
+# Development
+pytest==7.4.3             # Testing framework
+httpx==0.25.2             # For testing async endpoints
+

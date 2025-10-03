@@ -1,0 +1,33 @@
+version: '3.8'
+
+# This file defines all the services we need for local development
+# Run: docker-compose up -d
+
+services:
+  # PostgreSQL - Our main database
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: prpilot
+      POSTGRES_PASSWORD: devpassword
+      POSTGRES_DB: prpilot
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    # TODO: We'll add pgvector extension later for semantic search
+
+  # Redis - Message queue for Celery
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+  # TODO: We'll add backend & worker services once we have dependencies defined
+
+volumes:
+  postgres_data:
+  redis_data:
+

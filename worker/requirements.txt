@@ -1,0 +1,32 @@
+# Worker Dependencies - Celery Background Tasks
+# These are for the heavy AI processing work
+
+# Task Queue
+celery==5.3.4             # Background task processing
+redis==5.0.1              # Message broker
+
+# GitHub Integration
+PyGithub==2.1.1           # Fetch PR diffs & post comments
+
+# AI/ML
+huggingface-hub==0.19.4   # HuggingFace API client
+requests==2.31.0          # HTTP requests to HF Inference API
+
+# Code Analysis
+unidiff==0.7.5            # Parse git diffs
+bandit==1.7.5             # Security linter for Python
+radon==6.0.1              # Code complexity metrics
+
+# Database (same as backend)
+psycopg2-binary==2.9.9    
+sqlalchemy==2.0.23
+
+# Configuration
+python-dotenv==1.0.0
+
+# Observability
+sentry-sdk==1.38.0        # Error tracking
+
+# Development
+pytest==7.4.3
+
