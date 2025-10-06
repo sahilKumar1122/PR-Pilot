@@ -1,0 +1,138 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        python-version: ['3.11', '3.12', '3.13']
+    
+    services:
+      redis:
+        image: redis:7-alpine
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+      
+      postgres:
+        image: postgres:15-alpine
+        env:
+          POSTGRES_USER: prpilot
+          POSTGRES_PASSWORD: testpassword
+          POSTGRES_DB: prpilot_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ matrix.python-version }}
+    
+    - name: Cache dependencies
+      uses: actions/cache@v4
+      with:
+        path: |
+          ~/.cache/pip
+          backend/venv
+          worker/venv
+        key: ${{ runner.os }}-pip-${{ matrix.python-version }}-${{ hashFiles('**/requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-${{ matrix.python-version }}-
+    
+    - name: Install backend dependencies
+      run: |
+        cd backend
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    - name: Install worker dependencies
+      run: |
+        cd worker
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    - name: Lint with ruff
+      run: |
+        pip install ruff
+        ruff check backend/ worker/ --select=E9,F63,F7,F82
+    
+    - name: Type check with mypy
+      continue-on-error: true
+      run: |
+        pip install mypy
+        mypy backend/ worker/ --ignore-missing-imports
+    
+    - name: Run tests
+      env:
+        REDIS_URL: redis://localhost:6379/0
+        DATABASE_URL: postgresql://prpilot:testpassword@localhost:5432/prpilot_test
+        GITHUB_TOKEN: ${{ secrets.TEST_GITHUB_TOKEN }}
+        HF_API_KEY: ${{ secrets.TEST_HF_API_KEY }}
+      run: |
+        pip install pytest pytest-cov
+        pytest tests/ --cov=backend --cov=worker --cov-report=xml
+    
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v4
+      with:
+        file: ./coverage.xml
+        flags: unittests
+        name: codecov-umbrella
+  
+  lint:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+    
+    - name: Install linters
+      run: |
+        pip install ruff black isort mypy
+    
+    - name: Check formatting with black
+      run: black --check backend/ worker/ tests/
+    
+    - name: Check import sorting with isort
+      run: isort --check-only backend/ worker/ tests/
+    
+    - name: Lint with ruff
+      run: ruff check backend/ worker/ tests/
+  
+  docker:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Test docker-compose
+      run: |
+        docker-compose config
+        docker-compose up -d
+        sleep 10
+        docker-compose ps
+        docker-compose logs
+        docker-compose down

@@ -1,8 +1,41 @@
-# PR Pilot 🚀
+# PR Pilot 🤖
 
-**AI-powered pull request reviewer that summarizes diffs, flags risks, suggests tests/docs, and generates commit messages & release notes.**
+<div align="center">
 
-[![CI](https://github.com/YOUR_USERNAME/PR-Pilot/actions/workflows/ci.yml/badge.svg)](https://github.com/YOUR_USERNAME/PR-Pilot/actions/workflows/ci.yml)
+**AI-powered pull request reviewer that automatically analyzes diffs, flags risks, suggests tests/docs, and generates commit messages.**
+
+[![CI](https://github.com/sahilKumar1122/PR-Pilot/actions/workflows/ci.yml/badge.svg)](https://github.com/sahilKumar1122/PR-Pilot/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
+[Features](#features-mvp) • [Quick Start](#quick-start) • [Demo](#demo) • [Documentation](#documentation) • [Contributing](#contributing)
+
+</div>
+
+---
+
+## ✨ Why PR Pilot?
+
+🚀 **Automated Analysis**: No manual reviews needed - PR Pilot analyzes every PR automatically  
+🤖 **AI-Powered**: Uses HuggingFace models for intelligent summarization and classification  
+🔒 **Privacy-First**: Self-hosted with your own API keys - your code never leaves your infrastructure  
+💰 **Cost-Effective**: Free HuggingFace models, no expensive OpenAI credits needed  
+⚡ **Fast & Reliable**: Smart fallbacks ensure it works even when AI models are slow  
+🎯 **Actionable**: Risk detection, test suggestions, and commit message generation
+
+---
+
+## 🎥 Demo
+
+> **Coming Soon!** We're preparing a demo video and screenshots.
+
+**For now, try it yourself:**
+1. Fork this repo
+2. Follow the [Quick Start](#quick-start) guide
+3. Open a PR in your test repository
+4. Watch PR Pilot automatically comment with AI analysis!
 
 ---
 
@@ -268,14 +301,39 @@ See [LEARNING_NOTES.md](./docs/LEARNING_NOTES.md) for detailed development journ
 
 ---
 
-## Contributing
+## 🤝 Contributing
 
-Contributions are welcome! Please:
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'feat: add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request (and let PR Pilot review it! 🎯)
+We love contributions! Whether it's:
+- 🐛 Bug reports
+- 💡 Feature suggestions
+- 📝 Documentation improvements
+- 🔧 Code contributions
+
+**See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.**
+
+### Good First Issues
+
+Looking for a place to start? Check out issues tagged with [`good-first-issue`](https://github.com/sahilKumar1122/PR-Pilot/labels/good-first-issue).
+
+### Contributors
+
+<a href="https://github.com/sahilKumar1122/PR-Pilot/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=sahilKumar1122/PR-Pilot" />
+</a>
+
+---
+
+## 🗺️ Comparison with Other Tools
+
+| Feature | PR Pilot | PR-Agent (Qodo) | Copilot |
+|---------|----------|-----------------|---------|
+| **Cost** | Free (self-hosted) | Free tier (75/mo) | $$$ |
+| **AI Models** | HuggingFace (open) | GPT-4/Claude | Copilot |
+| **Privacy** | 100% self-hosted | Zero retention | Microsoft |
+| **Platforms** | GitHub | GitHub/GitLab/BB | GitHub |
+| **Setup** | Docker Compose | GitHub App | Built-in |
+| **Customization** | Full control | Limited | None |
+| **Learning** | ✅ Great | ❌ Complex | ❌ Black box |
 
 ---
 
@@ -306,13 +364,46 @@ Built with:
 
 ---
 
-## Support
+## 📞 Support & Community
 
-- 📧 Email: ksahilbazard@gmail.com
-- 🐛 Issues: [GitHub Issues](https://github.com/sahilKumar1122/PR-Pilot/issues)
-- 💬 Discussions: [GitHub Discussions](https://github.com/sahilKumar1122/PR-Pilot/discussions)
+- 🐛 **Bug Reports**: [Create an issue](https://github.com/sahilKumar1122/PR-Pilot/issues/new?template=bug_report.md)
+- 💡 **Feature Requests**: [Suggest a feature](https://github.com/sahilKumar1122/PR-Pilot/issues/new?template=feature_request.md)
+- 💬 **Discussions**: [GitHub Discussions](https://github.com/sahilKumar1122/PR-Pilot/discussions)
+- 📧 **Email**: ksahilbazard@gmail.com
+- 📖 **Documentation**: [Wiki](https://github.com/sahilKumar1122/PR-Pilot/wiki) (coming soon!)
+
+### Star History
+
+If you find PR Pilot useful, please consider giving it a ⭐!
+
+[![Star History Chart](https://api.star-history.com/svg?repos=sahilKumar1122/PR-Pilot&type=Date)](https://star-history.com/#sahilKumar1122/PR-Pilot&Date)
 
 ---
 
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 🙏 Acknowledgments
+
+Built with:
+- [FastAPI](https://fastapi.tiangolo.com/) - Modern web framework
+- [Celery](https://docs.celeryq.dev/) - Distributed task queue
+- [HuggingFace](https://huggingface.co/) - AI models and inference
+- [PyGithub](https://github.com/PyGithub/PyGithub) - GitHub API client
+- [PostgreSQL](https://www.postgresql.org/) + [pgvector](https://github.com/pgvector/pgvector) - Database
+
+Inspired by [PR-Agent](https://github.com/qodo-ai/pr-agent) and the amazing open source community!
+
+---
+
+<div align="center">
+
 **Made with ❤️ for better code reviews**
+
+[⬆ Back to Top](#pr-pilot-)
+
+</div>
 
