@@ -238,12 +238,33 @@ See `infra/` directory for deployment manifests and instructions.
 
 ## Roadmap
 
-- [x] Sprint 0: Project scaffolding & infrastructure
-- [ ] Sprint 1: Core PR processing pipeline
-- [ ] Sprint 2: Enhanced suggestions & feedback loop
-- [ ] Sprint 3: Semantic search & release notes
+- [x] **Sprint 0: Project scaffolding & infrastructure** ✅
+  - FastAPI webhook endpoint with signature verification
+  - Celery worker setup with Redis
+  - Docker Compose infrastructure
+  - End-to-end pipeline tested
+  
+- [x] **Sprint 1: Core PR processing pipeline** ✅
+  - GitHub API integration (fetch PRs, post comments)
+  - HuggingFace AI integration (summarization, classification)
+  - Risk detection and suggestions
+  - Commit message generation
+  - Smart fallbacks for reliability
+  
+- [ ] **Sprint 2: Enhanced suggestions & feedback loop** (Upcoming)
+  - Interactive commands (@PR-Pilot /review, /suggest)
+  - Inline code comments
+  - User feedback collection
+  - Database models for history
+  
+- [ ] **Sprint 3: Semantic search & release notes** (Future)
+  - Vector database for similar PRs
+  - Release notes generation
+  - Multi-language support
 
-See [ROADMAP.md](./docs/ROADMAP.md) for detailed implementation plan.
+**Current Status:** ✅ **MVP Complete & Functional!**
+
+See [LEARNING_NOTES.md](./docs/LEARNING_NOTES.md) for detailed development journey.
 
 ---
 
