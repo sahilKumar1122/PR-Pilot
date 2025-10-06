@@ -4,7 +4,6 @@ Test Database and Redis Connections
 Quick script to verify Docker services are accessible.
 """
 
-import os
 import sys
 
 

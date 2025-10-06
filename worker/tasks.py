@@ -20,12 +20,11 @@ import os
 from celery import Celery
 from dotenv import load_dotenv
 
-# Load environment variables
-load_dotenv()
-
-# Import our analyzer and clients
 from worker.analyzers.pr_analyzer import PRAnalyzer
 from worker.integrations.github_client import get_github_client
+
+# Load environment variables
+load_dotenv()
 
 # Connect to Redis (our message queue)
 redis_url = os.getenv("REDIS_URL", "redis://localhost:6379/0")

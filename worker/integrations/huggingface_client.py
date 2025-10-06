@@ -43,7 +43,6 @@ class HuggingFaceClient:
 
         # For corporate networks with SSL inspection
         # This disables SSL verification (use only in development!)
-        import ssl
 
         import urllib3
 
@@ -134,7 +133,7 @@ class HuggingFaceClient:
         Simple fallback when AI models fail
         Just extract the first meaningful sentence
         """
-        lines = [l.strip() for l in text.split("\n") if l.strip()]
+        lines = [line.strip() for line in text.split("\n") if line.strip()]
         if lines:
             # Try to find title/description
             for line in lines[:5]:
@@ -168,13 +167,13 @@ class HuggingFaceClient:
             if len(text) > 512:
                 text = text[:512]
 
-            print(f"   Classifying with zero-shot model...")
+            print("   Classifying with zero-shot model...")
 
             result = self.client.zero_shot_classification(
                 text, labels=labels, model="facebook/bart-large-mnli"
             )
 
-            print(f"   ✅ Classification complete")
+            print("   ✅ Classification complete")
 
             # Handle different response formats
             if isinstance(result, dict):
@@ -202,7 +201,7 @@ class HuggingFaceClient:
 
         except Exception as e:
             print(f"   ⚠️  Classification failed: {str(e)[:100]}")
-            print(f"   ℹ️  Using fallback: Keyword-based classification")
+            print("   ℹ️  Using fallback: Keyword-based classification")
             return self._fallback_classify(text, labels)
 
     def _fallback_classify(self, text: str, labels: List[str]) -> Dict[str, float]:

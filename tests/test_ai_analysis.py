@@ -58,10 +58,10 @@ def test_analysis():
     test_repo = "facebook/react"  # Popular open-source repo
     test_pr_number = 28000  # A real PR (you can change this)
 
-    print(f"📋 Test Configuration:")
+    print("📋 Test Configuration:")
     print(f"   Repository: {test_repo}")
     print(f"   PR Number: {test_pr_number}")
-    print(f"   Note: Using a public PR for testing\n")
+    print("   Note: Using a public PR for testing\n")
 
     try:
         # Initialize analyzer
@@ -104,7 +104,7 @@ def test_analysis():
 
     except Exception as e:
         print(f"\n❌ Test failed with error: {e}")
-        print(f"\nFull error details:")
+        print("\nFull error details:")
         import traceback
 
         traceback.print_exc()
