@@ -287,9 +287,9 @@ Built with:
 
 ## Support
 
-- 📧 Email: your.email@example.com
-- 🐛 Issues: [GitHub Issues](https://github.com/YOUR_USERNAME/PR-Pilot/issues)
-- 💬 Discussions: [GitHub Discussions](https://github.com/YOUR_USERNAME/PR-Pilot/discussions)
+- 📧 Email: ksahilbazard@gmail.com
+- 🐛 Issues: [GitHub Issues](https://github.com/sahilKumar1122/PR-Pilot/issues)
+- 💬 Discussions: [GitHub Discussions](https://github.com/sahilKumar1122/PR-Pilot/discussions)
 
 ---
 

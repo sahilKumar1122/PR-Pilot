@@ -18,7 +18,7 @@ bandit==1.7.5             # Security linter for Python
 radon==6.0.1              # Code complexity metrics
 
 # Database (same as backend)
-psycopg2-binary==2.9.9    
+psycopg[binary]>=3.2.0    # Python 3.13 compatible!
 sqlalchemy==2.0.23
 
 # Configuration

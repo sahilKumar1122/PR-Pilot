@@ -21,11 +21,25 @@ GitHub → FastAPI → Redis Queue → Celery Worker → Post Comment Back
          (instant)                  (slow AI work)
 ```
 
+### 📝 Completed Sprint 0
+- [x] Install Python dependencies (FastAPI, Celery, PyGithub, HuggingFace Hub)
+- [x] Test FastAPI locally
+- [x] Set up Docker Compose (Postgres + Redis)
+- [x] Build webhook endpoint with signature verification
+- [x] Set up Celery worker
+- [x] Connect webhook to Celery task queue
+
+### 🎯 Current Status
+We have built the complete pipeline:
+```
+GitHub Webhook → FastAPI → Redis Queue → Celery Worker
+```
+
 ### 📝 Next Steps
-- [ ] Install Python dependencies
-- [ ] Test FastAPI locally
-- [ ] Connect to Redis
-- [ ] Build first webhook endpoint
+- [ ] Test end-to-end flow
+- [ ] Integrate HuggingFace models for PR summarization
+- [ ] Parse PR diffs
+- [ ] Post comments back to GitHub
 
 ---
 

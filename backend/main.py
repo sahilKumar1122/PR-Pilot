@@ -16,10 +16,16 @@ Why FastAPI?
 import hmac
 import hashlib
 import os
+import sys
 from typing import Optional
 
 from fastapi import FastAPI, Request, Header, HTTPException
 from dotenv import load_dotenv
+
+# Add worker directory to Python path so we can import tasks
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+
+from worker.tasks import analyze_pr
 
 # Load environment variables from .env file
 load_dotenv()
@@ -108,14 +114,17 @@ async def github_webhook(
         print(f"📥 Received PR event: {repo_full_name}#{pr_number} - {pr_title}")
         print(f"   Action: {action}")
         
-        # TODO: Enqueue Celery job here
-        # For now, just log it
+        # Enqueue Celery job for background processing
+        task = analyze_pr.delay(repo_full_name, pr_number, payload)
+        
+        print(f"   Task ID: {task.id}")
         
         return {
             "status": "enqueued",
             "repo": repo_full_name,
             "pr_number": pr_number,
-            "action": action
+            "action": action,
+            "task_id": task.id
         }
     
     # Other events (like PR closed, comments) - we ignore for now
