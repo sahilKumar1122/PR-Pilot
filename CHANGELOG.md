@@ -8,7 +8,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- Nothing yet!
+- Comprehensive documentation suite:
+  - API Reference (docs/API.md)
+  - Deployment Guide (docs/DEPLOYMENT.md)
+  - Development Guide (docs/DEVELOPMENT.md)
+  - Troubleshooting Guide (docs/TROUBLESHOOTING.md)
+- Documentation section in README with quick links
+
+### Changed
+- Improved README structure with better navigation
 
 ## [0.1.0] - 2025-10-06
 

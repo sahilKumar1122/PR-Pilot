@@ -236,12 +236,32 @@ docker-compose exec backend mypy .
 
 ---
 
+## 📚 Documentation
+
+Comprehensive guides for all aspects of PR Pilot:
+
+- **[API Reference](docs/API.md)** - Complete API documentation, endpoints, authentication
+- **[Deployment Guide](docs/DEPLOYMENT.md)** - Deploy to production (Docker, Cloud platforms, manual)
+- **[Development Guide](docs/DEVELOPMENT.md)** - Contribute to PR Pilot, codebase overview
+- **[Troubleshooting](docs/TROUBLESHOOTING.md)** - Common issues and solutions
+- **[Contributing Guidelines](CONTRIBUTING.md)** - How to contribute
+- **[Code of Conduct](CODE_OF_CONDUCT.md)** - Community guidelines
+
+**Quick Links:**
+- 🚀 [Quick Start Guide](#quick-start) (above)
+- 🏗️ [Architecture](#architecture) (above)
+- 📝 [Changelog](CHANGELOG.md)
+- 🐛 [Report Issues](https://github.com/sahilKumar1122/PR-Pilot/issues)
+- 💬 [Discussions](https://github.com/sahilKumar1122/PR-Pilot/discussions)
+
+---
+
 ## API Endpoints
 
 ### Webhooks
 - `POST /webhooks/github` - GitHub webhook receiver
 
-### Management (Dashboard API)
+### Management (Dashboard API - Future)
 - `GET /api/prs` - List processed PRs
 - `GET /api/prs/{pr_id}` - Get PR analysis details
 - `POST /api/feedback` - Submit feedback on suggestions
