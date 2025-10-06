@@ -16,19 +16,18 @@ Why FastAPI?
 import hashlib
 import hmac
 import os
-import sys
 from typing import Optional
 
+from celery import Celery
 from dotenv import load_dotenv
 from fastapi import FastAPI, Header, HTTPException, Request
 
-# Add worker directory to Python path so we can import tasks
-sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
-
-from worker.tasks import analyze_pr
-
 # Load environment variables from .env file
 load_dotenv()
+
+# Create Celery client (connects to worker via Redis)
+redis_url = os.getenv("REDIS_URL", "redis://localhost:6379/0")
+celery_app = Celery("pr-pilot", broker=redis_url, backend=redis_url)
 
 app = FastAPI(
     title="PR Pilot API",
@@ -106,7 +105,10 @@ async def github_webhook(
         print(f"   Action: {action}")
 
         # Enqueue Celery job for background processing
-        task = analyze_pr.delay(repo_full_name, pr_number, payload)
+        # Use send_task() instead of .delay() - no need to import task definition
+        task = celery_app.send_task(
+            "worker.tasks.analyze_pr", args=[repo_full_name, pr_number, payload]
+        )
 
         print(f"   Task ID: {task.id}")
 

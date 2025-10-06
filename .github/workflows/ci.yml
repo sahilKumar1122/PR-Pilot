@@ -146,14 +146,23 @@ jobs:
       run: docker compose up -d
     
     - name: Wait for services to be healthy
-      run: sleep 15
-    
-    - name: Check services are running
-      run: docker compose ps
-    
-    - name: Test backend health
       run: |
-        curl -f http://localhost:8000/docs || (docker compose logs && exit 1)
+        echo "Waiting for services to start..."
+        sleep 20
+        echo "Checking service status:"
+        docker compose ps
+        echo "Checking backend logs:"
+        docker compose logs backend
+    
+    - name: Test backend health (root endpoint)
+      run: |
+        echo "Testing root endpoint..."
+        curl -f http://localhost:8000/ || (echo "Health check failed!" && docker compose logs backend && exit 1)
+    
+    - name: Test backend health (docs endpoint)
+      run: |
+        echo "Testing docs endpoint..."
+        curl -f http://localhost:8000/docs || (echo "Docs check failed!" && docker compose logs backend && exit 1)
     
     - name: Cleanup
       run: docker compose down -v
