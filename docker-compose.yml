@@ -24,8 +24,42 @@ services:
       - "6379:6379"
     volumes:
       - redis_data:/data
-
-  # TODO: We'll add backend & worker services once we have dependencies defined
+  
+  # Backend - FastAPI webhook server
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - REDIS_URL=redis://redis:6379/0
+      - DATABASE_URL=postgresql://prpilot:devpassword@postgres:5432/prpilot
+    env_file:
+      - .env
+    depends_on:
+      - postgres
+      - redis
+    volumes:
+      - ./backend:/app
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+  
+  # Worker - Celery background tasks
+  worker:
+    build:
+      context: ./worker
+      dockerfile: Dockerfile
+    environment:
+      - REDIS_URL=redis://redis:6379/0
+      - DATABASE_URL=postgresql://prpilot:devpassword@postgres:5432/prpilot
+    env_file:
+      - .env
+    depends_on:
+      - postgres
+      - redis
+    volumes:
+      - ./worker:/app
+    command: celery -A tasks worker --loglevel=info
 
 volumes:
   postgres_data:
