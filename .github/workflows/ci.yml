@@ -128,11 +128,31 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     
-    - name: Test docker-compose
+    - name: Create dummy .env file
       run: |
-        docker-compose config
-        docker-compose up -d
-        sleep 10
-        docker-compose ps
-        docker-compose logs
-        docker-compose down
+        echo "GITHUB_TOKEN=dummy" > .env
+        echo "HF_API_KEY=dummy" >> .env
+        echo "REDIS_URL=redis://redis:6379/0" >> .env
+        echo "DATABASE_URL=postgresql://prpilot:devpassword@postgres:5432/prpilot" >> .env
+    
+    - name: Test docker-compose config
+      run: docker-compose config
+    
+    - name: Build docker images
+      run: docker-compose build
+    
+    - name: Start services
+      run: docker-compose up -d
+    
+    - name: Wait for services to be healthy
+      run: sleep 15
+    
+    - name: Check services are running
+      run: docker-compose ps
+    
+    - name: Test backend health
+      run: |
+        curl -f http://localhost:8000 || (docker-compose logs && exit 1)
+    
+    - name: Cleanup
+      run: docker-compose down -v

@@ -8,10 +8,11 @@ Usage:
   python tests/test_webhook.py
 """
 
-import requests
-import json
-import hmac
 import hashlib
+import hmac
+import json
+
+import requests
 
 # Your local server
 WEBHOOK_URL = "http://localhost:8000/webhooks/github"
@@ -27,73 +28,55 @@ mock_payload = {
         "number": 123,
         "title": "Add new feature: Dark mode toggle",
         "body": "This PR adds a dark mode toggle to the settings page.",
-        "user": {
-            "login": "testuser"
-        },
-        "head": {
-            "ref": "feature/dark-mode",
-            "sha": "abc123def456"
-        },
-        "base": {
-            "ref": "main"
-        }
+        "user": {"login": "testuser"},
+        "head": {"ref": "feature/dark-mode", "sha": "abc123def456"},
+        "base": {"ref": "main"},
     },
     "repository": {
         "full_name": "myorg/myrepo",
         "name": "myrepo",
-        "owner": {
-            "login": "myorg"
-        }
-    }
+        "owner": {"login": "myorg"},
+    },
 }
 
 
 def send_webhook():
     """Send a mock webhook request to our local server"""
-    
+
     # Convert payload to JSON string
     payload_json = json.dumps(mock_payload)
     body = payload_json.encode()
-    
+
     headers = {
         "Content-Type": "application/json",
         "X-GitHub-Event": "pull_request",
     }
-    
+
     # If we have a secret, compute the signature
     if WEBHOOK_SECRET:
-        mac = hmac.new(
-            WEBHOOK_SECRET.encode(),
-            msg=body,
-            digestmod=hashlib.sha256
-        )
+        mac = hmac.new(WEBHOOK_SECRET.encode(), msg=body, digestmod=hashlib.sha256)
         signature = "sha256=" + mac.hexdigest()
         headers["X-Hub-Signature-256"] = signature
         print(f"✅ Signature: {signature[:20]}...")
     else:
         print("⚠️  No secret configured, sending without signature")
-    
+
     # Send the request
     print(f"\n📤 Sending webhook to {WEBHOOK_URL}")
     print(f"   PR: {mock_payload['repository']['full_name']}#{mock_payload['number']}")
     print(f"   Title: {mock_payload['pull_request']['title']}\n")
-    
+
     try:
-        response = requests.post(
-            WEBHOOK_URL,
-            data=body,
-            headers=headers,
-            timeout=10
-        )
-        
+        response = requests.post(WEBHOOK_URL, data=body, headers=headers, timeout=10)
+
         print(f"📥 Response Status: {response.status_code}")
         print(f"📥 Response Body: {response.json()}\n")
-        
+
         if response.status_code == 200:
             print("✅ SUCCESS! Webhook received and processed")
         else:
             print("❌ FAILED! Check the error above")
-            
+
     except requests.exceptions.ConnectionError:
         print("❌ ERROR: Could not connect to server")
         print("   Make sure your FastAPI server is running:")
@@ -107,4 +90,3 @@ if __name__ == "__main__":
     print("  GitHub Webhook Test Script")
     print("=" * 60)
     send_webhook()
-

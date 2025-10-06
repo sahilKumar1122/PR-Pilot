@@ -4,14 +4,16 @@ Test Database and Redis Connections
 Quick script to verify Docker services are accessible.
 """
 
-import sys
 import os
+import sys
+
 
 # Test Redis Connection
 def test_redis():
     try:
         import redis
-        r = redis.Redis(host='localhost', port=6379, db=0, decode_responses=True)
+
+        r = redis.Redis(host="localhost", port=6379, db=0, decode_responses=True)
         r.ping()
         print("[OK] Redis: Connected successfully!")
         r.set("test_key", "Hello from PR-Pilot!")
@@ -28,9 +30,9 @@ def test_redis():
 def test_postgres():
     try:
         import psycopg
+
         conn = psycopg.connect(
-            "postgresql://prpilot:devpassword@127.0.0.1:5432/prpilot",
-            connect_timeout=3
+            "postgresql://prpilot:devpassword@127.0.0.1:5432/prpilot", connect_timeout=3
         )
         cursor = conn.cursor()
         cursor.execute("SELECT version();")
@@ -50,12 +52,12 @@ if __name__ == "__main__":
     print("  Testing Docker Services")
     print("=" * 60)
     print()
-    
+
     redis_ok = test_redis()
     print()
     postgres_ok = test_postgres()
     print()
-    
+
     if redis_ok and postgres_ok:
         print("[SUCCESS] All services are ready!")
         sys.exit(0)
@@ -63,4 +65,3 @@ if __name__ == "__main__":
         print("[FAIL] Some services failed. Check Docker containers:")
         print("   docker-compose ps")
         sys.exit(1)
-
