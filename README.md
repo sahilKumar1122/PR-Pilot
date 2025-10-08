@@ -29,13 +29,65 @@
 
 ## 🎥 Demo
 
-> **Coming Soon!** We're preparing a demo video and screenshots.
+### Video Demo (Coming Soon!)
 
-**For now, try it yourself:**
+> 📹 **Demo video in progress!** Check back soon or [follow the guide](assets/DEMO_GUIDE.md) to see it in action.
+
+### Screenshots
+
+<details>
+<summary>🤖 <b>PR Analysis Comment</b> (Click to expand)</summary>
+
+> **Screenshot coming soon!** This will show PR Pilot's AI-generated analysis comment on a pull request.
+
+**What it includes:**
+- 📝 AI-powered summary of changes
+- 🏷️ Automatic classification (bug/feature/refactor/docs)
+- 📁 List of files changed
+- ⚠️ Risk detection and warnings
+- 🧪 Test and documentation suggestions
+
+</details>
+
+<details>
+<summary>⚙️ <b>GitHub Webhook Setup</b> (Click to expand)</summary>
+
+> **Screenshot coming soon!** This will show the GitHub webhook configuration.
+
+**Configuration:**
+- Webhook URL pointing to PR Pilot
+- Content type: `application/json`
+- Secret configured for security
+- Listening to Pull Request events
+
+</details>
+
+<details>
+<summary>🐳 <b>Docker Services Running</b> (Click to expand)</summary>
+
+> **Screenshot coming soon!** This will show all PR Pilot services running via Docker Compose.
+
+**Services:**
+- ✅ Backend (FastAPI webhook server)
+- ✅ Worker (Celery task processor)
+- ✅ PostgreSQL (Database)
+- ✅ Redis (Message queue)
+
+</details>
+
+### Try It Yourself!
+
+**Want to see it in action right now?**
+
 1. Fork this repo
-2. Follow the [Quick Start](#quick-start) guide
-3. Open a PR in your test repository
-4. Watch PR Pilot automatically comment with AI analysis!
+2. Follow the [Quick Start](#quick-start) guide (5 minutes)
+3. Open a test PR in your repository
+4. Watch PR Pilot analyze and comment automatically! ⚡
+
+**Pro tip:** Use the test script for a quick demo:
+```bash
+python tests/test_ai_analysis.py
+```
 
 ---
 
