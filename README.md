@@ -36,42 +36,82 @@
 ### Screenshots
 
 <details>
-<summary>🤖 <b>PR Analysis Comment</b> (Click to expand)</summary>
+<summary>🤖 <b>PR Analysis Output</b> (Click to expand)</summary>
 
-> **Screenshot coming soon!** This will show PR Pilot's AI-generated analysis comment on a pull request.
+PR Pilot automatically analyzes pull requests and provides comprehensive insights:
 
-**What it includes:**
+![PR Analysis Part 1](assets/screenshots/pr-analysis-output1.png)
+![PR Analysis Part 2](assets/screenshots/pr-analysis-output2.png)
+![PR Analysis Part 3](assets/screenshots/pr-analysis-output3.png)
+
+**Analysis includes:**
 - 📝 AI-powered summary of changes
 - 🏷️ Automatic classification (bug/feature/refactor/docs)
 - 📁 List of files changed
 - ⚠️ Risk detection and warnings
 - 🧪 Test and documentation suggestions
+- 💬 Commit message recommendations
 
 </details>
 
 <details>
-<summary>⚙️ <b>GitHub Webhook Setup</b> (Click to expand)</summary>
+<summary>📚 <b>API Documentation</b> (Click to expand)</summary>
 
-> **Screenshot coming soon!** This will show the GitHub webhook configuration.
+Beautiful auto-generated API docs powered by FastAPI:
 
-**Configuration:**
-- Webhook URL pointing to PR Pilot
-- Content type: `application/json`
-- Secret configured for security
-- Listening to Pull Request events
+![API Documentation](assets/screenshots/api-docs.png)
+
+**Features:**
+- Interactive Swagger UI
+- Try endpoints directly in browser
+- Complete request/response schemas
+- Authentication configuration
 
 </details>
 
 <details>
 <summary>🐳 <b>Docker Services Running</b> (Click to expand)</summary>
 
-> **Screenshot coming soon!** This will show all PR Pilot services running via Docker Compose.
+All services running smoothly with Docker Compose:
+
+![Docker Compose Services](assets/screenshots/docker-compose-running.png)
 
 **Services:**
 - ✅ Backend (FastAPI webhook server)
 - ✅ Worker (Celery task processor)
 - ✅ PostgreSQL (Database)
 - ✅ Redis (Message queue)
+
+</details>
+
+<details>
+<summary>✅ <b>CI/CD Pipeline</b> (Click to expand)</summary>
+
+Robust CI/CD with GitHub Actions - all checks passing:
+
+![CI Pipeline Passing](assets/screenshots/ci-passing.png)
+
+**Automated checks:**
+- Python 3.11, 3.12, 3.13 compatibility
+- Code linting (black, isort, ruff)
+- Docker build validation
+- Test suite execution
+
+</details>
+
+<details>
+<summary>⭐ <b>GitHub Repository</b> (Click to expand)</summary>
+
+Professional open-source project with complete documentation:
+
+![GitHub Repository](assets/screenshots/github-repo.png)
+
+**Highlights:**
+- Comprehensive README with badges
+- Contributing guidelines
+- Code of conduct
+- Issue/PR templates
+- MIT License
 
 </details>
 

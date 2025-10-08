@@ -4,15 +4,15 @@ This directory contains screenshots demonstrating PR Pilot's features.
 
 ## 📸 Current Screenshots
 
-> **Note:** Screenshots will be added soon! In the meantime, follow the [Demo Guide](../DEMO_GUIDE.md) to create them.
+All screenshots are ready and included in the main README!
 
-## Planned Screenshots
-
-1. **pr-comment-analysis.png** - PR Pilot's AI-generated comment on a pull request
-2. **github-webhook-setup.png** - GitHub webhook configuration page
-3. **docker-compose-running.png** - Terminal showing running services
+1. **pr-analysis-output1.png** - PR analysis output (part 1)
+2. **pr-analysis-output2.png** - PR analysis output (part 2)
+3. **pr-analysis-output3.png** - PR analysis output (part 3)
 4. **api-docs.png** - FastAPI auto-generated documentation
-5. **real-world-example.png** - Analysis of a real-world PR
+5. **docker-compose-running.png** - Terminal showing running services
+6. **ci-passing.png** - GitHub Actions CI/CD pipeline passing
+7. **github-repo.png** - GitHub repository overview
 
 ## Usage in README
 
