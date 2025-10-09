@@ -1,0 +1,48 @@
+title: "[SUCCESS] "
+labels:
+  - show and tell
+  - success story
+body: |
+  ## 🎉 Show and Tell
+  
+  **What I built/achieved:**
+  <!-- Tell us about your PR Pilot deployment or success! -->
+  
+  **Project details:**
+  - Repository type: <!-- e.g., Open source, Private company project -->
+  - Team size: <!-- e.g., Solo, 5 developers, 50+ developers -->
+  - PRs analyzed: <!-- Approximate number -->
+  - Time saving: <!-- Estimated time saved per week -->
+  
+  **Setup:**
+  <!-- How did you deploy PR Pilot? -->
+  - [ ] Docker Compose (local)
+  - [ ] Docker (production server)
+  - [ ] Cloud platform (AWS/GCP/Azure/Heroku)
+  - [ ] Other: 
+  
+  **Customizations:**
+  <!-- Did you modify PR Pilot in any way? -->
+  
+  **Results & Impact:**
+  <!-- What improvements have you seen? -->
+  - Code review time reduced by:
+  - Most useful feature:
+  - Unexpected benefit:
+  
+  **Screenshots/Demo:**
+  <!-- Share screenshots, GIFs, or demo videos! -->
+  
+  **Lessons learned:**
+  <!-- Any tips for others? -->
+  
+  **Feedback for the project:**
+  <!-- What could make PR Pilot even better? -->
+  
+  ---
+  
+  **Can we feature your story?**
+  - [ ] Yes, you can mention this in README/docs
+  - [ ] Yes, but keep it anonymous
+  - [ ] No, just sharing with the community
+

@@ -7,10 +7,11 @@
 [![CI](https://github.com/sahilKumar1122/PR-Pilot/actions/workflows/ci.yml/badge.svg)](https://github.com/sahilKumar1122/PR-Pilot/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
+[![Discussions](https://img.shields.io/github/discussions/sahilKumar1122/PR-Pilot)](https://github.com/sahilKumar1122/PR-Pilot/discussions)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-[Features](#features-mvp) • [Quick Start](#quick-start) • [Demo](#demo) • [Documentation](#documentation) • [Contributing](#contributing)
+[Features](#features-mvp) • [Quick Start](#quick-start) • [Demo](#demo) • [Documentation](#documentation) • [Discussions](https://github.com/sahilKumar1122/PR-Pilot/discussions) • [Contributing](#contributing)
 
 </div>
 

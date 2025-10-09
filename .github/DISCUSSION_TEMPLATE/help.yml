@@ -1,0 +1,43 @@
+title: "[HELP] "
+labels:
+  - question
+  - help wanted
+body: |
+  ## 🙏 Need Help
+  
+  **What are you trying to do?**
+  <!-- Describe what you want to accomplish -->
+  
+  **What have you tried?**
+  <!-- Steps you've already taken -->
+  
+  **What's not working?**
+  <!-- Error messages, unexpected behavior, etc. -->
+  
+  **Environment:**
+  - OS: <!-- e.g., Ubuntu 22.04, Windows 11, macOS 14 -->
+  - Docker version: <!-- run `docker --version` -->
+  - Python version: <!-- if running locally -->
+  - PR Pilot version: <!-- e.g., v0.1.0 -->
+  
+  **Configuration:**
+  ```bash
+  # Your docker-compose.yml settings (redact secrets!)
+  # Your .env settings (redact tokens!)
+  ```
+  
+  **Logs/Error output:**
+  ```
+  # Paste relevant logs here
+  # Docker: docker compose logs backend
+  # Docker: docker compose logs worker
+  ```
+  
+  **Screenshots:**
+  <!-- If applicable, add screenshots to help explain -->
+  
+  ---
+  
+  **Additional context:**
+  <!-- Anything else that might help us understand the issue -->
+

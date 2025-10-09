@@ -1,0 +1,24 @@
+title: ""
+labels:
+  - discussion
+body: |
+  ## 💬 General Discussion
+  
+  **Topic:**
+  <!-- What would you like to discuss? -->
+  
+  **Context:**
+  <!-- Any background information? -->
+  
+  **Questions/Thoughts:**
+  <!-- Your questions or ideas -->
+  
+  ---
+  
+  Feel free to discuss anything related to PR Pilot:
+  - Architecture decisions
+  - Best practices
+  - Integration ideas
+  - Performance optimization
+  - Or just say hi! 👋
+

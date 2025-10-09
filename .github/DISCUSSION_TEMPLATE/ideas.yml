@@ -1,0 +1,35 @@
+title: "[IDEA] "
+labels:
+  - enhancement
+  - idea
+body: |
+  ## 💡 Feature Idea
+  
+  **Problem it solves:**
+  <!-- What problem does this feature address? -->
+  
+  **Proposed solution:**
+  <!-- How should PR Pilot handle this? Be specific! -->
+  
+  **Alternatives considered:**
+  <!-- What other approaches did you think about? -->
+  
+  **Use case:**
+  <!-- How would you use this feature in your workflow? -->
+  
+  **Additional context:**
+  <!-- Add screenshots, code examples, or links to similar features -->
+  
+  ---
+  
+  **Priority (your opinion):**
+  - [ ] Nice to have
+  - [ ] Would improve my workflow
+  - [ ] Critical for my use case
+  
+  **Willing to contribute?**
+  - [ ] Yes, I can help implement this
+  - [ ] Yes, I can help test this
+  - [ ] Yes, I can help document this
+  - [ ] No, just suggesting
+
